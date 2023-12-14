@@ -1,0 +1,2 @@
+.next
+# por padrão, o prettier já ignora os diretórios .git e node_modules
