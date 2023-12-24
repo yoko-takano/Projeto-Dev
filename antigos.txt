@@ -1,0 +1,75 @@
+---> calculadora.js
+function somar(numero1, numero2) {
+  if (typeof numero1 !== "number") {
+    return "Erro";
+  }
+  return numero1 + numero2;
+}
+
+function diminuir(numero1, numero2) {
+  return numero1 - numero2;
+}
+
+function multiplicar(numero1, numero2) {
+  return numero1 * numero2;
+}
+
+function dividir(numero1, numero2) {
+  if (numero2 == 0) {
+    return "ZeroDivisionError";
+  }
+  return numero1 / numero2;
+}
+
+exports.somar = somar;
+exports.diminuir = diminuir;
+exports.multiplicar = multiplicar;
+exports.dividir = dividir;
+
+---> calculadora.js
+const calculadora = require("../../models/calculadora");
+
+test("somar 2 + 2 deveria retornar 4", () => {
+  const resultado = calculadora.somar(2, 2);
+  expect(resultado).toBe(4);
+});
+
+test("somar 5 + 100 deveria retornar 105", () => {
+  const resultado = calculadora.somar(5, 100);
+  expect(resultado).toBe(105);
+});
+
+test("somar 'banana' + 100 deveria retornar 'Erro'", () => {
+  const resultado = calculadora.somar("banana", 100);
+  expect(resultado).toBe("Erro");
+});
+
+test("diminuir 2 - 2 deveria retornar 0", () => {
+  const resultado = calculadora.diminuir(2, 2);
+  expect(resultado).toBe(0);
+});
+
+test("diminuir 10 - 20 deveria retornar -10", () => {
+  const resultado = calculadora.diminuir(10, 20);
+  expect(resultado).toBe(-10);
+});
+
+test("multiplicar 5 * 100 deveria retornar 500", () => {
+  const resultado = calculadora.multiplicar(5, 100);
+  expect(resultado).toBe(500);
+});
+
+test("dividir 1 / 2 deveria retornar 0.50", () => {
+  const resultado = calculadora.dividir(1, 2);
+  expect(resultado).toBe(0.5);
+});
+
+test("dividir 1 / 0 deveria retornar 'Erro'", () => {
+  const resultado = calculadora.dividir(1, 0);
+  expect(resultado).toBe("ZeroDivisionError");
+});
+
+test("dividir 0 / 1 deveria retornar 1.0", () => {
+  const resultado = calculadora.dividir(0, 1);
+  expect(resultado).toBe(0);
+});
