@@ -1,5 +1,36 @@
 import database from "infra/database.js";
 
+/**
+ * @swagger
+ * /api/v1/status:
+ *   get:
+ *     summary: Retorna o status da aplicação e do banco de dados
+ *     tags:
+ *       - Status
+ *     responses:
+ *       200:
+ *         description: Status atual
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 updated_at:
+ *                   type: string
+ *                   format: date-time
+ *                 dependencies:
+ *                   type: object
+ *                   properties:
+ *                     database:
+ *                       type: object
+ *                       properties:
+ *                         version:
+ *                           type: string
+ *                         max_connections:
+ *                           type: integer
+ *                         opened_connections:
+ *                           type: integer
+ */
 async function status(request, response) {
   const updatedAt = new Date().toISOString();
 
