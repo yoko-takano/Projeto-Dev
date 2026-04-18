@@ -22,9 +22,8 @@ html {
 .wave-letter {
   display: inline-block;
   animation: wave 1.4s ease-in-out infinite;
-  font-family: "Lilita One", cursive;
-  font-size: 3.5rem;
-  color: #fff3e4;
-  -webkit-text-stroke: 2px #b5607a;
-  text-shadow: 0 2px 12px rgba(90, 30, 50, 0.35);
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.1rem;
+  color: white;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
