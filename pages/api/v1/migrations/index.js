@@ -37,7 +37,7 @@ import { join } from "node:path";
 import database from "infra/database.js";
 
 export default async function migrations(request, response) {
-  const allowedMethods = ["POST", "GET"]
+  const allowedMethods = ["POST", "GET"];
 
   if (!allowedMethods.includes(request.method)) {
     return response.status(405).json({
@@ -74,11 +74,9 @@ export default async function migrations(request, response) {
       }
       return response.status(200).json(migratedMigrations);
     }
-
-  } catch(error) {
-    console.log(error)
+  } catch (error) {
+    console.log(error);
     throw error;
-  
   } finally {
     await dbClient.end();
   }
